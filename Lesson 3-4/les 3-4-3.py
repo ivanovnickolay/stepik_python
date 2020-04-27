@@ -26,24 +26,41 @@
 import requests
 import re
 
+
+def is_port(url: str) -> str:
+    d = url.split(":")
+    return d[0]
+
+def is_not_links(url:str)->bool:
+    if url.endswith('css'):
+        return False
+    if url.endswith('js'):
+        return False
+    return True
+
+protocols = ['http:', 'https:', 'ftp:']
 control_links = set()
 link_1 = input()
 res_1 = requests.get(link_1)
 text_res = res_1.text
 # получаем все линки по первой ссылке
 link_temp = re.findall(r'href=[\'"]?([^\'" >]+)', text_res)
+# link_temp = re.findall(r'<a[\s|\S].*? href=[\'"]?([^\'" >]+)', text_res)
 # по очереди обходим их
 for l in link_temp:
-    f = l.split('/')
-    control_links.add(f[2])
-    # if f[2] not in control_links:
-    #     control_links.append(f[2])
-    print(l + " -> " + f[2])
-    # res_2 = requests.get(l)
-    # print(l)
-    # # если ссылка существует
-    # if res_2.status_code == 200:
-    #     # получаем все ссылки с страницы
+    if is_not_links(l):
+        f = l.split('/')
+        # если указан протокол
+        if f[0] in protocols:
+            control_links.add(is_port(f[2]))
+            # print(l + " -> " + is_port(f[2]))
+            continue
+        # если указан пути типа "../skip_relative_links'
+        if f[0] == '..':
+            continue
+        else:
+            control_links.add(is_port(f[0]))
+            # print(l + " -> " + is_port(f[0]))
 
 links = list(control_links)
 links.sort()
