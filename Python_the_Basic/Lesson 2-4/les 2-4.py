@@ -8,7 +8,7 @@
 import os
 list_path_py = []
 # list_dir = os.walk('main')
-for root, dirs, files in os.walk(".", topdown=False):
+for root, dirs, files in os.walk("", topdown=False):
     for name in files:
         if name.endswith(".py"):
             if os.path.join(root) not in list_path_py:
