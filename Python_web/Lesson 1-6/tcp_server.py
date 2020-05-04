@@ -17,6 +17,9 @@ while True:
         if not data: break
         # посылаем данные по соединению
         conn.send(data)
+        if str(data) == 'b\'close\'':
+            print('close')
+            conn.close()
 
     conn.close()
 
