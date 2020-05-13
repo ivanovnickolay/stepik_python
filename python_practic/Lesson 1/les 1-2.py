@@ -38,9 +38,6 @@ while index_ <= len(r):
     else:
         break
     temp = temp[index_:]
-sred = sorted(result.items(), key=lambda value: value[1])
-
-# print(Counter(result).most_common())
 
 for k, v in (Counter(result).most_common()):
     print(f'{k}:{v}')
