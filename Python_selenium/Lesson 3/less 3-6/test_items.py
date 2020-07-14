@@ -24,5 +24,5 @@ def test_button(browser: webdriver):
             return False
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     browser.get(link)
-    time.sleep(10)
+    time.sleep(5)
     assert isElementPresent()==True, "Button not found"

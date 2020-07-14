@@ -40,8 +40,3 @@ def browser(request) -> webdriver:
     print("\nquit browser..")
     browser.quit()
 
-# @pytest.fixture(scope="function")
-# def language_name(request):
-#     languare_name = request.config.getoption("language")
-#     return languare_name
-
