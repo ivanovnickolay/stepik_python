@@ -12,6 +12,14 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="function")
 def browser(request) -> webdriver:
+    """
+    При запуске обращать особое внимание на строку
+    webdriver.Chrome('../ChromeDriver/chromedriver.exe',chrome_options=options)
+        -   '../ChromeDriver/chromedriver.exe' путь к драйверу
+        -   chrome_options=options параметры опций отличаются от указаных в лекциях
+    :param request:
+    :return:
+    """
     browser_name = request.config.getoption("browser_name")
     languare_name = request.config.getoption("language")
     browser = None
