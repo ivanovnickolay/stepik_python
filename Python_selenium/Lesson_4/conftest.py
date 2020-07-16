@@ -22,7 +22,7 @@ def browser(request) -> webdriver:
     """
     browser_name = request.config.getoption("browser_name")
     languare_name = request.config.getoption("language")
-    browser = None
+    browser: webdriver = None
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
         options = Options()
