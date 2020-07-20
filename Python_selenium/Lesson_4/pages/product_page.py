@@ -1,3 +1,5 @@
+import time
+
 from .base_page import BasePage
 from .locators import ProductPageLocator
 
@@ -17,9 +19,10 @@ class ProductPage(BasePage):
         """
         self.is_add_basket_button()
         self.click_add_button()
-        # self.solve_quiz_and_get_code()
+        self.solve_quiz_and_get_code()
         self.message_name_product_add()
         self.message_price_product_add()
+        # time.sleep(10)
 
     def is_add_basket_button(self):
         """
@@ -39,7 +42,7 @@ class ProductPage(BasePage):
 
         name_product = self.browser.find_element(*ProductPageLocator.name_product).text
         message_product: str = self.browser.find_element(*ProductPageLocator.message_product).text
-        assert message_product.find(name_product) != -1, "Product not add to basket"
+        assert message_product == name_product, "Product not add to basket"
 
     def message_price_product_add(self):
         """

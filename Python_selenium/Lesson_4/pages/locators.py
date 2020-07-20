@@ -14,7 +14,7 @@ class BasketPageLocator():
     AddToBasket = (By.CLASS_NAME, "btn-add-to-basket")
 
 class ProductPageLocator():
-    url_product = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/"
+    url_product = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/"
     # url_product = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
     addProductToBasket = (By.CLASS_NAME, "btn-add-to-basket")
     name_product = (By.CSS_SELECTOR, ".product_main h1")

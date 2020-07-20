@@ -27,7 +27,7 @@ def browser(request) -> webdriver:
         print("\nstart chrome browser for test..")
         options = Options()
         options.add_experimental_option('prefs', {'intl.accept_languages': languare_name})
-        browser = webdriver.Chrome('../ChromeDriver/chromedriver.exe',chrome_options=options)
+        browser = webdriver.Chrome('../ChromeDriver/chromedriver.exe',options=options)
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
         browser = webdriver.Firefox()
@@ -35,7 +35,7 @@ def browser(request) -> webdriver:
         print("\nstart chrome browser for test..")
         options = Options()
         options.add_experimental_option('prefs', {'intl.accept_languages': languare_name})
-        browser = webdriver.Chrome('../ChromeDriver/chromedriver.exe', chrome_options=options)
+        browser = webdriver.Chrome('../ChromeDriver/chromedriver.exe', options=options)
     yield browser
     print("\nquit browser..")
     browser.quit()
