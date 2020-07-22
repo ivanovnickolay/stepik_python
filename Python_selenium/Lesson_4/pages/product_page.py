@@ -52,3 +52,4 @@ class ProductPage(BasePage):
         price_product = self.browser.find_element(*ProductPageLocator.price_product).text
         message_price: str = self.browser.find_element(*ProductPageLocator.message_price).text
         assert message_price.find(price_product) != -1, "Product price not add to basket"
+

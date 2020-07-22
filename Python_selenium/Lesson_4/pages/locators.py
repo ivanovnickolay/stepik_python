@@ -21,3 +21,4 @@ class ProductPageLocator():
     message_product = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div > strong")
     price_product = (By.CLASS_NAME,"price_color")
     message_price = (By.CSS_SELECTOR, "#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > div > p:nth-child(1)")
+    message_suscess = (By.XPATH, '//*[@id="messages"]/div[1]/div')
