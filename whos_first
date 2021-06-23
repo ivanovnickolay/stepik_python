@@ -1,0 +1,38 @@
+def whos_first(p1, p2) -> str:
+    str_p1 = p1.lstrip()
+    cnt_p1 = len(p1) - len(str_p1)
+    str_p2 = p2.lstrip()
+    cnt_p2 = len(p2) - len(str_p2)
+    if cnt_p1 < cnt_p2:
+        return "p1"
+    elif cnt_p1 > cnt_p2:
+        return "p2"
+    else:
+        return "tie"
+
+
+def calc_dice_scores(lst: dict):
+    sum = 0
+    for g, f in lst:
+        if g == f:
+            return 0
+        sum = sum + g + f
+    return sum
+
+
+print(calc_dice_scores([(1, 1), (3, 4), (5, 6)]))
+
+
+def any_duplicates(square: list):
+    c = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    f = []
+    for r in range(0, len(square)):
+        f = f + square[r]
+
+    for _ in c:
+        if f.count(_) != 1:
+            return False
+    return True
+
+
+any_duplicates([[1, 3, 2], [9, 7, 8], [4, 5, 6]])
